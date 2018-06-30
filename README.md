@@ -5,3 +5,4 @@ Notes and exercises reading [Category Theory for Programmers](https://bartoszmil
 
 * [Chapter 1 - The Essence of Composition](chapter-1.md)
 * [Chapter 2 - Types and Functions](chapter-2.md)
+* [Chapter 3 - Categories Great and Small](chapter-3.md)

@@ -4,6 +4,7 @@ The Essence of Composition
 * What's a Category
     * Objects
     * Arrows (Morphisms)
+        * Categories are an abstraction, which means you take something and remove (subtract) details from it until you get the essence.
     * **Do**: add examples of Categories
     * Compositions of Morphisms: it is not optional.
         * Example of coposition of morphisms with composition of functions  
