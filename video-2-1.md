@@ -144,3 +144,31 @@ Fibration is very important, because if corresponds to the process of abstractio
 Isomorphism is more the process of modelling: I'm modelling a set to another set, which for some intent can be considerd equal; I'm recognizing the pattern that define the fist set inside the second set.
 
 
+## Injective, Surjective
+
+### Injective function
+If a function does not collapse elements it's called injective, it's an injection.
+
+```haskell
+for each x1 != x2
+
+then
+
+f x1 != f x2
+```
+
+Injective function lead to no abstraction
+
+### Surjective
+If the function covers the whole codomain.
+
+*sur* comes from "on", "onto".
+
+### Bijective, isomorphism
+
+If a function is both injective and surjective, it is invertible and it's bijective.
+
+## Category
+We defined all above in terms of elements. Let's try to define the same concepts in terms of composition and identity.
+
+
