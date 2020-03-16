@@ -171,4 +171,58 @@ If a function is both injective and surjective, it is invertible and it's biject
 ## Category
 We defined all above in terms of elements. Let's try to define the same concepts in terms of composition and identity.
 
+| Set Theory | Category Theory |
+|:----------------|:------------------------|
+| Injective     | Monomorphism  |
+| Surjective   | Epimorphism       |
+
+
+### Epimorphism
+
+In Set Theory, surjective functions. `f` is an Epimorphism if for any object `C` and any pair of `g1` and `g2` follows that:
+
+```haskell
+f :: A -> B
+g1 :: B -> C
+g1 :: B -> C
+
+g1 . f = g2 . f => g1 = g2
+```
+
+This is because `g1` and `g2` must be defined for all elements of `B`. If they are obliged to be equal, it means they cannot be any element outside `B` which `f` does not map.
+
+In other words, taking 3 sets `A`, `B` and `C`, if `f :: A -> B` is not surjective, there is a terra incognita in `B` which is not covered by `f`. Having `g :: B -> C`, `g` itself would cover all its domain.<br/>
+But, the composition `g . f` would not probe that terra incognita. So, if the equivalence
+
+```haskell
+g1 . f = g2 . f => g1 = g2
+```
+
+this must mean that neither `g1` nor `g2` probed any elements in this terra incognita, that is, the terra incognita was empty. So, `f` is surjective. In terms of Category, `f` was an epimorphism.
+
+If `f` is not surjective, `g1 . f` can be equal to `g2 .f` even if `g1` and `g2` are different, because their difference would not impact the composition, since it would probe elements which are not elements of `f`'s images.
+
+Note that in
+
+```haskell
+g1 . f = g2 . f => g1 = g2
+```
+
+it's like I can cancel (simplify) `f` from both the terms, on the right.
+
+Note that for discussing the property without looking inside the Set, we considered the whole universe, and the relation of `f` with all the other morphisms.
+
+### Monomorphism
+In Set Theory, injective functions. `f` is a Monomorphism if:
+
+'''haskell
+f :: B -> C
+g1 :: A -> B
+g2 :: A -> B
+
+f . g1 = f .g2 => g1 = g2
+'''
+
+If `g1` must be equal to `g2`, it cannot happen that `g1` took to some `b1` and `g2` to `b2` which `f` then maps to the same value `c`.
+
 
