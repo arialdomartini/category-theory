@@ -17,3 +17,6 @@ Mathematical functions are defined for all the domain, not just for some argumen
 A Total Function is a function defined for all of its arguments. In maths, Total Function is a synonym for Function.
 
 A Partial Function from `X` to `Y` is a function from `f: X' => Y` for some subset `X'` of `X`. It generalizes the concept of a function not forcing to map all the elements of `X`. If `X' = X`, the function is called Total.
+
+### Pure function
+A function is pure if it can be memoised, and it can be turned into a lookup table.
