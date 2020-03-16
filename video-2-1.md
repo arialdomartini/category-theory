@@ -101,6 +101,46 @@ f . g = id
 g . f = id
 ```
 
-In the language of Category, there is no reference to the elements of the sets.
+In the language of Category, there is no reference to the elements of the sets: isomorphisms here is expressed only in terms of composition and identity, nothing else.
+
+Isomorphisms are useful when we have 2 sets and for some intent they can be considered identical, because they are isomorphic, there is an isomorphisms that acts like an identification of between these two sets.
+
+For finite sets, an isomorphism is just a mapping between elements. For infinite sets, this is also possible. For example, it's possible to define an isomorphisms between the set of natural numbers and the sets of even numbers:
+
+```haskel
+y  =  2x
+```
+The function is invertible when the domain is the set of even numbers.
+
+
+There are 2 resons for a function not to be an isomorphism:
+
+* at least two elements of the domain are mapped to the same element of the codomain, that is the function collapses elements of a set; the set of elements that are mapped to the same element of the codomain is called *fiber*;
+* the image is a proper subset of the codomain (so, not all the elements of the codomain are covered, the image does not fill the codomain)
+
+```haskell
+there exist 2 elements x1 and x2 such that
+
+f x1 = y
+f x2 = y
+
+then f is not an isomorphism
+```
+
+As for the second reason,
+
+```haskell
+there exist a y1 such that
+
+for each x in X
+
+f x != y1
+```
+
+
+### Fibration as abstraction, Isomorphism as modelling
+Fibration is very important, because if corresponds to the process of abstraction: when using a function that takes multiple elements from the domain (a fiber) to one single element of the codomain, I'm using the second set as an abstraction of the fist one, that is I'm removing some detail and just keeping some more abstract information, I'm throwing away some information, since by definition I cannot invert the function and know from which element I'm coming from: I'm left on the only information I care about.
+
+Isomorphism is more the process of modelling: I'm modelling a set to another set, which for some intent can be considerd equal; I'm recognizing the pattern that define the fist set inside the second set.
 
 
