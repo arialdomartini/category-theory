@@ -78,7 +78,7 @@ because every object in a Category *must* have an identity. This very function c
 This function in Haskell has the name `absurd`:
 
 ```haskell
-absurd :: Void -> Void
+absurd :: Void -> a
 ```
 
 In Logic this function corresponds to False. In Logic we cannot construct Falsity from something, that is, we cannot prove something that is false: something that's false is false, it has no proof.
@@ -88,6 +88,11 @@ Functions are proofs. In the correspondance between types and logic, called Prop
 
 Since we cannot create an instance of `Void`, there is no proof of falsity.
  
+On the other hand, if we assume falsity, from false follows anything. Here's why the definition 
 
 
-    
+```haskel
+absurd :: Void -> a
+```
+
+From false premises we can derive anything.
