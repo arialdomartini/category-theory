@@ -96,3 +96,52 @@ absurd :: Void -> a
 ```
 
 From false premises we can derive anything.
+
+
+## Singleton
+After `Void`, which has no element, there's the Category with one single element, called Singleton (Singleton Set in Set Theory). In Haskell it's called Unit, and it's represented with `()`.
+
+Unit has one single element. This single element can be constructed from nothing, from thin air, it just is. This element is also represented as `()`.
+
+So, Unit is a type `()` which has a single element `()`. We can write:
+
+```haskell
+() :: ()
+```
+
+From the point of view of Logic, this corresponds to True. 
+
+A function that takes anything and goes to Unit, regardless of its argument generates from thin air a Unit. This function is called `unit`:
+
+```haskell
+unit:: a -> ()
+```
+
+A function that takes a Unit and returns an int:
+
+```haskell
+f :: () -> int
+```
+
+This function must be constant, it must return always the same integer. There must be a lot of those functions: the function that generates `1`, the one that generates `2` and so on.
+
+```haskell
+one :: () -> 1
+two :: () -> 2
+```
+
+There must be such function for any types:
+
+
+```haskell
+true :: () -> True
+false :: () -> False
+```
+
+In general, there is one function for each possible value/element of a type.
+
+So, we can say that the family of functions from Unit corresponds to picking elements of Sets. The define in some way elements of a Set or, we say, they generalize elements of an object. In fact, they are called *generalized elements*.
+
+Therefore, we can replace talking about element with talking about morphisms.
+
+Not all categories have singleton objects.
