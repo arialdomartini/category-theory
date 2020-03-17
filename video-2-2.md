@@ -68,4 +68,26 @@ In fact, in Haskell types contains the Bottom element, so the Empty Set really i
 
 Can we define functions that take `Void` as arguments, that would go from `Void` to `Integer`? Mathematically speaking, yes, otherwise it would be impossible to define the identity for `Void`.
 
+
+```haskell
+idVoid :: Void -> Void
+```
+
+because every object in a Category *must* have an identity. This very function cannot be called (because we cannot provide it an argument), but it exists.
+
+This function in Haskell has the name `absurd`:
+
+```haskell
+absurd :: Void -> Void
+```
+
+In Logic this function corresponds to False. In Logic we cannot construct Falsity from something, that is, we cannot prove something that is false: something that's false is false, it has no proof.
+
+## Proposition as types
+Functions are proofs. In the correspondance between types and logic, called Propisition as types, the existence of a function corresponds to a proof. [Proposition as type](https://homepages.inf.ed.ac.uk/wadler/papers/propositions-as-types/propositions-as-types.pdf) links logic to computation. 
+
+Since we cannot create an instance of `Void`, there is no proof of falsity.
+ 
+
+
     
