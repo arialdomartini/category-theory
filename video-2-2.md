@@ -145,3 +145,11 @@ So, we can say that the family of functions from Unit corresponds to picking ele
 Therefore, we can replace talking about element with talking about morphisms.
 
 Not all categories have singleton objects.
+
+
+## 2 elements sets
+A Set with 2 elements. This always correspond to the Boolean set. It can be defined as a Sum of generalized elements.
+
+`Void` and `()` form the basis for the rest.
+
+We can talk about functions returning bools, called predicates.
