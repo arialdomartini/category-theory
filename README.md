@@ -12,3 +12,4 @@ Notes and exercises reading [Category Theory for Programmers](https://bartoszmil
 Notes watching the [Category Theory](https://www.youtube.com/watch?v=I8LbkfSSR58&list=PLbgaMIhjbmEnaH_LTkxLI7FMa2HsnawM_) video series by Bartosz Milewski.
 
 * [2.1 Functions, epimorphisms](video-2-1.md) 
+* [2.2 Monomorphisms, simple types](video-2-2.md)
