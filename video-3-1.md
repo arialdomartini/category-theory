@@ -61,3 +61,28 @@ The set of morphisms from object `a` to object `b` in a category `C` is written 
 A *thin category* is a category whose homsets each contain at most 1 morphism, that is is a category in which every homset is either an empty set or a singleton set.
 
 
+## Partial order
+We can impose additinal conditions to a pre-order and get to a partial order. The next condition is to avoid loops. A partial order is a directed acyclic graph (DAG).
+
+In a partial order some objects are not comparable at all, because there mustn't be an arrow between any 2 objects in the category.
+
+## Total order
+An order in which there is an arrow between any 2 pair of objects. 
+
+
+## Invertible
+We once said that in a category, something that is both an epimorphism and a monomorphism needn't necessarily be reversible. Partial orders are the first example. In set theory, those corrspond to injective and surjective, and when a function is both, it is bijective, and hence invertible.
+
+The definitions were:
+
+```haskell
+f : a -> b is an epimorphism if for any g, g' : b -> c
+
+g . f = g' . f => g = g'
+
+f is a monomorphis if for any h, h': c -> a
+
+f . h = f . h' => h = h'
+```
+
+In a thin category this is satisfied by definition, because between `a` and `b` there could be at most 1 morphism, so `g` and `g'` are the same by definition. So, every arror in a thin category is an epimorphism and a monomorphism, at a same time.
