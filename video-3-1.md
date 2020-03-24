@@ -67,7 +67,7 @@ We can impose additinal conditions to a pre-order and get to a partial order. Th
 In a partial order some objects are not comparable at all, because there mustn't be an arrow between any 2 objects in the category.
 
 ## Total order
-An order in which there is an arrow between any 2 pair of objects. 
+An order in which there is an arrow between any 2 pair of objects.
 
 
 ## Invertible
@@ -86,3 +86,30 @@ f . h = f . h' => h = h'
 ```
 
 In a thin category this is satisfied by definition, because between `a` and `b` there could be at most 1 morphism, so `g` and `g'` are the same by definition. So, every arror in a thin category is an epimorphism and a monomorphism, at a same time.
+
+
+## Monoid
+In a one-element category we are not constraint to have one single arrow. We can have many more morphisms, and for each we can have compositions.
+
+```haskell
+M
+
+id : m -> m 
+f : m -> m
+g : m -> m
+g . f : m -> m
+f . g : m -> m
+```
+
+etc.
+
+A one-element category is called *monoid*.
+
+In Set Theory a monoid is a set with some binary operator defined in it, with 2 conditions:
+
+* it defines a *unit*, so that an element multiplied by the unit returns the element itself: `for each a there esist e such as e * a = a * e = a`
+* associativity: `(a * b) * c = a * (b * c)
+
+Natural numbers with multiplication is a Monoid (having unit `1`). Also, natural numbers with sum is a Monoid. Unit is `0`.
+
+The binary operation needn't be simmetric. For example, Strings and concatenation is a Monoid, with empty string as unit.
