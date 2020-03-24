@@ -110,6 +110,14 @@ In Set Theory a monoid is a set with some binary operator defined in it, with 2 
 * it defines a *unit*, so that an element multiplied by the unit returns the element itself: `for each a there esist e such as e * a = a * e = a`
 * associativity: `(a * b) * c = a * (b * c)
 
-Natural numbers with multiplication is a Monoid (having unit `1`). Also, natural numbers with sum is a Monoid. Unit is `0`.
+The binary operator must be defined for any pair of elements, it must be a total function.
+
+Natural numbers with multiplication is a Monoid (having unit `1`). Also, natural numbers with sum is a Monoid. Unit is `0`. In this last example, each arrow would correspond to operations such as *adding 1* or *adding 2*.
 
 The binary operation needn't be simmetric. For example, Strings and concatenation is a Monoid, with empty string as unit.
+
+
+`M` only has one single object `m`. Its homset is `M(m,m)`. For any 2 elements in the homset, there is a 3rd element representing the product, the composition of them. This homset is the monoid as defined above, for the Set Theory. The identity in Category Theory corresponds to the unit in Set Theory.
+
+## In programming
+A Category of Types coresponds to a system that is strongly typed: you can compose only functions whose types match. Not any 2 functions are composable. A monoid is a special category: that corresponds to languages that are weak typing.
