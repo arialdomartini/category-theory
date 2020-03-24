@@ -50,8 +50,14 @@ In general, in a category we can have multiple arrows between a pair of objects.
 
 In principle, in a category we can have arrows in 2 directions (`a -> b` and `b -> a`), but in this case we cannot.
 
-A category with these characteristics is called a *thin category* or *posetal category* (a category whose homsets each contain at most 1 morphism). *Posetal* comes from *poset*, which means *Pre Order Set*.
+A category with these characteristics is called a *thin category* or *posetal category*. *Posetal* comes from *poset*, which means *Pre Order Set*.
 
 
+## This categories and Homsets
+The set of morphisms is called *homset*.
+
+The set of morphisms from object `a` to object `b` in a category `C` is written as `C(a, b)`. There is also `C(a,a)`. It's a set. A thin 
+
+A *thin category* is a category whose homsets each contain at most 1 morphism, that is is a category in which every homset is either an empty set or a singleton set.
 
 
