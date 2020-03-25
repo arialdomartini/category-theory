@@ -139,3 +139,17 @@ Func<A, (C arg, string log)> Compose<A, B, C>(
 ```
 
 This is a new way of composing functions which takes care of appending strings.
+
+It is associative, because string concatenation is associative. Identity is
+
+```cpp
+Pair<A, string> id(A a) {
+    return makePair(a, "");
+}
+```
+
+```csharp
+Func<A, (A, string)> Identity(A a) => (a, String.Empty);
+```
+
+We have a binary operator `+` and a unity `""`. It works for any monoid, not only with strings. Instead of defining this combination for string, we could impose as few constraints as possible and define it for any monoid.
