@@ -30,7 +30,7 @@ There are different kinds of orders:
 We are used with total orders.
 
 ## Preorder
-The simplest orders is the pre-orders: it's a relation that satisfies the minimun of conditions, the composibility
+The simplest orders is the pre-orders: it's a relation that satisfies the minimun of conditions, composibility:
 
 ```haskell
 a -> b and b -> c => a -> c
@@ -62,7 +62,7 @@ A *thin category* is a category whose homsets each contain at most 1 morphism, t
 
 
 ## Partial order
-We can impose additinal conditions to a pre-order and get to a partial order. The next condition is to avoid loops. A partial order is a directed acyclic graph (DAG).
+We can impose additional conditions to a pre-order and get to a partial order. The next condition is to avoid loops. A partial order is a directed acyclic graph (DAG).
 
 In a partial order some objects are not comparable at all, because there mustn't be an arrow between any 2 objects in the category.
 
