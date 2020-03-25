@@ -156,4 +156,6 @@ We have a binary operator `+` and a unity `""`. It works for any monoid, not onl
 
 This is defined for "embellished" functions `a -> (a, string)`. It in fact works for other embellished functions.
 
-This category is called Kleisli category.
+This category is called Kleisli category, and the embellished functions are just monads. A monad is just a way of composing special kinds of functions.
+
+Usually monads are hard to grasp for people coming from imperitive programming, because in imperative programming we don't think about composing functions, we just call functions and using the resulting values for calling other functions. In functional programming we often redefine function composition.
