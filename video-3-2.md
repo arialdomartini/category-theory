@@ -153,3 +153,7 @@ Func<A, (A, string)> Identity(A a) => (a, String.Empty);
 ```
 
 We have a binary operator `+` and a unity `""`. It works for any monoid, not only with strings. Instead of defining this combination for string, we could impose as few constraints as possible and define it for any monoid.
+
+This is defined for "embellished" functions `a -> (a, string)`. It in fact works for other embellished functions.
+
+This category is called Kleisli category.
