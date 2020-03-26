@@ -15,3 +15,4 @@ Notes watching the [Category Theory](https://www.youtube.com/watch?v=I8LbkfSSR58
 * [2.2 Monomorphisms, simple types](video-2-2.md)
 * [3.1 Example of categories, orders and monoids](video-3-1.md)
 * [3.2 Kleisli Category](video-3-2.md)
+* [4.1 Terminal and Initial objects](video-4-1.md)
