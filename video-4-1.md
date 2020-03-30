@@ -84,3 +84,33 @@ for each f,g :: a -> ()  => f = g
 In an order, it would mean that every object `a` is `lessOrEqual` of `()`. So, `()` would be the largest object. Not every ordered set has a largest object. Think of Natural Numbers, for example.
 
 
+## Empty set / Void / Initial Object
+Let's invert the arrows, and define the Empty Set as the object with only unique outgoing arrows to any other object.
+
+```haskell
+for each a in C there exist f :: Void -> a
+for each f, g :: Void -> a => f = g
+```
+
+The function to Void is the absurd function. We have just inverted the definition for singleton set/terminal object. In Set Category this corresponds to empty set.
+
+
+### Category with Initial and Final objects
+In any category with a final object, because of composition and associativiry we can replace any path from `a -> b -> c -> ..... -> ()` with a single arrow `a -> ()`, no matter what path we take, it can be shrunk to `()`.
+
+## How many terminal/initial?
+
+The next questio that we might ask is how many terminal/initial objects can we have? 
+
+If I have 2 terminal objects, are they equal? What does it mean for them to be equal? In category there is equality of arrows, but no equality of objects. We don't compare objects. We can instead asked if they are isomorphic.
+```haskell
+f :: a -> b
+g :: b -> a
+
+g . f = id
+```
+
+Terminal objects are equal up to isomorphism. And there is a unique isomorphism between them. Between 2 bool (true/false and black/white) there exist 2 different isomorphisms.
+
+Let's take 2 terminal objects `a` and `b`. If `a` is terminal, there exist 1 and only 1 `f :: b -> a`.  But also `b` is terminal, so there exist 1 and only 1 `g :: a -> a`. From `a` there is also `ida :: a -> a`. If we now consider `g . f`, it's `g . g :: a -> a`. Since `a` is a terminal object, there must be 1 and only 1 arrow from any object (`a` included) to `a`, so `g . f = ida`, then `f` is an isomorphism. `a` and `b` are unique up to an isomorphism.
+
