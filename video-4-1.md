@@ -41,4 +41,46 @@ The identity in `K`: `ida : a -> a` in `K` would be `a -> m a` in `A`.
 If we demonstrate that the Kleisli category is in fact a category (identity, composition, associativity), then the mapping `m` from `a` to `m a` and from `f :: a -> b` to `f' :: a -> m b` is called *monad*. This is one of the definitions of monad.
 
 
+## Singleton Set / Terminal Object
+We see a dualism between Set Theory and Category Theory: only, in the latter we never talk about elements.<br/>
+We know in Set Theory there is the concept of Empty Set, a set without any element. How can we define the equivalent in Category Theory if we are not allowed to talk about elements? Or Cartesian Product. which in Set Theory is defined as the Set of the pairs of elements, if we cannot deal with elements?
+
+All these concepts has to be redefined, or re-discovered in terms of morphisms and composition.
+
+We use Universal Construction. The definition of Universal Construction and [Universal Property](https://en.wikipedia.org/wiki/Universal_property#) is very forman, and we won't cover it here. Let's talk about it only intuitively. We look for patterns (in terms of objects and morphisms) which are valid in a category.
+
+There is an arrow from any sets to the Singleton Set (unit). From any type/set there is a function to unit, and the function is called unit. It's a function that just ignores its argument and cretes a unit.
+
+```haskell
+
+fa :: A -> ()
+fb :: B -> ()
+```
+
+There is even a function frm the Empty set/Void to `()`. This is a sort of Universal Property of the singleton set: there's an incoming arrow from any other objects in the category. Does it really single out the Singleton Object? Is there any other type with the same property? Unfortunately, yes.
+
+The Set category is very rich in arrows. There's almost a function for any sets. There's only one case in which there is no arrow: the arrows from a non-empty set to Void; there can be no arrow, because a function is a mapping between elements.
+
+For the object representing `Bool` there are at least 2 morphisms incoming into it: `true` and `false`, which just ignore their arguments; but there can be more than 2 morphisms.
+
+The singleton, on the contrary, only has 1 single arrow from another object. That's a possible definition of the Singleton object: it is a *Terminal Object*. This can be defined in any category. Not every category has a Terminal Object. It has a unique arrow coming from any other objects in the Category.
+
+It must satisfy 2 conditions
+
+```haskell
+for each a in C there exists f :: a -> ()
+```
+(each object has a morphism to it)
+
+and
+
+```haskell
+for each f,g :: a -> ()  => f = g
+```
+(and that morphism must be unique).
+
+
+### Terminal object in Orders
+In an order, it would mean that every object `a` is `lessOrEqual` of `()`. So, `()` would be the largest object. Not every ordered set has a largest object. Think of Natural Numbers, for example.
+
 
