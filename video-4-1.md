@@ -114,3 +114,4 @@ Terminal objects are equal up to isomorphism. And there is a unique isomorphism 
 
 Let's take 2 terminal objects `a` and `b`. If `a` is terminal, there exist 1 and only 1 `f :: b -> a`.  But also `b` is terminal, so there exist 1 and only 1 `g :: a -> a`. From `a` there is also `ida :: a -> a`. If we now consider `g . f`, it's `g . g :: a -> a`. Since `a` is a terminal object, there must be 1 and only 1 arrow from any object (`a` included) to `a`, so `g . f = ida`, then `f` is an isomorphism. `a` and `b` are unique up to an isomorphism.
 
+How does this relate to Universal Contruction? Follows a not-so-convincing argument.
