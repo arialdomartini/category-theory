@@ -156,3 +156,5 @@ q' . m = q
 ```
 
 Not every category has product. Even if it has product, maybe it has not for every pair of object. In sets, products can be defined between any 2 object. In opposite category, we can have co-products, which we will talk about next time.
+
+
