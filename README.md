@@ -17,3 +17,4 @@ Notes watching the [Category Theory](https://www.youtube.com/watch?v=I8LbkfSSR58
 * [3.2 Kleisli Category](video-3-2.md)
 * [4.1 Terminal and Initial objects](video-4-1.md)
 * [4.2 Products](video-4-2.md)
+* [5.1 Coproducts, sum types](video-5-1.md)
