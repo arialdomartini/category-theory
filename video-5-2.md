@@ -164,3 +164,59 @@ Maybe a = Nothing | Just a
 ```
 
 `Nothing` is just like a `Left ()`.
+
+
+### Solving equations
+```haskell
+f(a) = 1 + a * f(a)
+f(a) - a * f(a) = 1
+f(a) * (1 - a)  = 1
+f(a) = 1 / (1 - a)
+```
+
+Let's transate it into types:
+
+```haskell
+f(a) = 1 + a * f(a)
+data List a = Nil | Cons (a, List a)
+```
+
+It's a linked list!
+
+Unfortunately, we cannot express `f(a) = 1 / (1 - a)` with a list. But we could notice that:
+
+```haskell
+f(a) = 1 / (1-a)
+```
+
+is the value a geometric sequence converges to.
+
+```haskell
+Sum n = 0 -> infinity = a^n = 1 + a + a^2 + a^3 + ... = 1 / (1 - a)
+```
+
+`1` is an empty list, `a` is the singleton list etc.
+
+```haskell
+data List a = Nil | Cons (a, List a)
+```
+
+can be solved by substitution (expansion). Let's start before with:
+
+```haskell
+f(a) = 1 + a*f(a)
+f(a) = 1 + a*(1 + a*f(a))
+f(a) = 1 + a + a^2*f(a)
+f(a) = 1 + a + a^2*(1 + a*f(a))
+f(a) = 1 + a + a^2* + a^3*f(a)
+...
+```
+
+With Haskell, it would be:
+
+```haskell
+data List a = Nil | Cons (a, List a)
+data List a = Nil | Cons (a, Nil | Cons (a, List a))
+```
+
+This is a way of resolving the geometrical sequence, with substitution. This can be formalized in the [Fixed Point combinator](https://en.wikipedia.org/wiki/Fixed-point_combinator).
