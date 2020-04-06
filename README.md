@@ -19,3 +19,4 @@ Notes watching the [Category Theory](https://www.youtube.com/watch?v=I8LbkfSSR58
 * [4.2 Products](video-4-2.md)
 * [5.1 Coproducts, sum types](video-5-1.md)
 * [5.2 Algebraic data types](video-5-2.md)
+* [6.2 Functors](video-6-1.md)
