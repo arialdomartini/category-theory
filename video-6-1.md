@@ -52,7 +52,16 @@ F g . F f :: F a -> F c
 and, importantly, `F (g . f) = F g . F f`. That's what we call preservation of structure. In order to be a Functor, this must be valid.
 
 
+## Identity
+```haskell
+ida : a -> a
 
+F ida = idFa : F a -> F a
+```
+
+Not every `F` grants this. In order to be a Functor, this must be granted.
+
+So, a functor is a mapping of objects and morphisms that preserves composition and identity.
 
 
 
