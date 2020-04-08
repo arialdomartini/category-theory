@@ -75,3 +75,8 @@ Here we talk about hom-sets, not objects! A Faithful Functor can collapse object
 
 
 
+### Functor from singleton category
+If we take a category with only 1 object, what a Functor from it could be? It must map identity.
+
+### Constant Functor
+It's a Functor that collapses every objects in single object It's a like a black hole. All the morphisms in the source category are mapped in the identity of a single object in the target category.
