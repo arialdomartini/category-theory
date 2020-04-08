@@ -10,3 +10,49 @@ In the previous chapters we referred to patterns, as structures. A pattern can b
 
 When mapping between categories, we will see one category as the model, and we recognize the model inside another category. This is the motivation for functors.
     
+## Functors
+Let's start from a simple category, in which objects form a set. A mapping between this category and another simple one is just a function, a mapping of sets. All the things we know about functions (being or not being surjective, or injective) just translate to Functors.
+
+Here we are interested in mappings that preserve structures. Functions are really primitive in this sense, because Sets don't have structure, they are just a bunch of elements. But categories have structure. A category embodies structure.
+
+### Preserving structure
+A Set can be represented by a category with no morphisms other than identities. It's called Discrete Category. Any category that is no discrete has a structure.
+
+If we want to preserve structure, our mapping must also map arrows.
+
+Let's call the functor `F`. The functor maps objects from left category to right category.
+
+```haskell
+a -> F a
+b -> F b
+```
+
+It also maps the morphism `f : a -> b` to `F f : F a -> F b`. This is what preserves the structure.
+
+The homset `C(a, b)` on the left is mapped to `D(F a, F b)`. Both the homsets are sets. So, a Functor is a function, between objects and between hom-sets.
+
+Structure is connected to composition. Functors should preserve composition. Let's see this. Say we have
+
+```haskell
+f :: a -> b
+g :: b -> c
+
+g . f :: a -> c
+```
+
+Applying the Functor:
+
+```haskell
+F f :: F a -> F b
+F g :: F b -> F c
+
+F g . F f :: F a -> F c
+```
+
+and, importantly, `F (g . f) = F g . F f`. That's what we call preservation of structure. In order to be a Functor, this must be valid.
+
+
+
+
+
+
