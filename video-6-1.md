@@ -63,5 +63,15 @@ Not every `F` grants this. In order to be a Functor, this must be granted.
 
 So, a functor is a mapping of objects and morphisms that preserves composition and identity.
 
+## Functor properties
+Functors needn't be surjective. It's possible that some morphisms on the source category have no correspondent morphism in the target category. They don't neither need to be injective. We can drop some information when we map from a category to another. But they can never destroy or break connections: in topology, we would say that they are a continuous transformation. There is the topic of continuous functors that defines this more precisesly.
+
+### Faithful and Ful Functors
+We can define Functors that don't shrink things. A Functor injective on hom-sets is called Faithful.
+
+A Functor that is surjective is called Ful.
+
+Here we talk about hom-sets, not objects! A Faithful Functor can collapse objects.
+
 
 
