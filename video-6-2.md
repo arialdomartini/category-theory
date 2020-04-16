@@ -210,4 +210,55 @@ class Functor f where
 and here the compiler figures out that `f` operates on `a`, that is, on a type, so `f` is a type constructor.
 
 
+### Some examples
+`Maybe` is an example of Functor. There are many other examples, each very different from the others, so that it's not simple to get the general idea of functors only by viewing them. We could just say the a Functor is any type constructor that support `fmap` (plus, `fmap` itself).
 
+#### List
+The most intuitive example for Functor is List. Lists are already defined in Haskell, but we are going to redefined it.
+
+List can be defined as a coproduct:
+
+``` haskell
+List a = Nil | Cons a (List a)
+```
+
+`List` is a type constrcutor: it takes an arbitrary type `a` and constructs a type (List of Int etc).
+
+Let's define `fmap` for it, to make it an instance of `Functor`:
+
+``` haskell
+instance Functor List where
+    fmap ....
+```
+
+In this case, `fmap` would take a function from `a -> b` and would produce a function from `List a -> List b`. Since `List` is a coproduct, we have 2 cases here: `Nil` and `Cons a (List a)`.
+
+``` haskell
+instance Functor List where
+    fmap f Nil = Nil
+    ...
+```
+
+Since we don't use `f` we could write
+
+``` haskell
+instance Functor List where
+    fmap _ Nil = Nil
+    ...
+```
+
+Now for 
+
+``` haskell
+instance Functor List where
+    fmap _ Nil = Nil
+    fmap f (Cons h t) = ...
+```
+
+where `h` (head) is of type `a`, and `t` (tail) is of type `List a`.
+
+``` haskell
+instance Functor List where
+    fmap _ Nil = Nil
+    fmap f (Cons h t) = Cons (f h) (fmap f t)
+```
