@@ -21,3 +21,4 @@ Notes watching the [Category Theory](https://www.youtube.com/watch?v=I8LbkfSSR58
 * [5.2 Algebraic data types](video-5-2.md)
 * [6.1 Functors](video-6-1.md)
 * [6.2 Functors in programming](video-6-2.md)
+* [7.1 Functoriality, bifunctors](video-7.1.md)
