@@ -262,3 +262,40 @@ instance Functor List where
     fmap _ Nil = Nil
     fmap f (Cons h t) = Cons (f h) (fmap f t)
 ```
+
+#### Reader
+In infix notation:
+
+``` haskell
+type Reader r a = r -> a
+```
+or in prefix notation:
+
+``` haskell
+type Reader r a = (->) r a
+```
+
+So, `Reader` is a type constructor that takes 2 types `r` and `a` and produces a types of function from `r` to `a`.
+
+Using partial application, `Reader r` is the Functor that associate `a`  to `r -> a`. For example, the Functor `Reader Bool` would associate the type `Int` to type `Bool -> Int` (which is a function). `(->) r` is a type constructor. Let's define `fmap`. What's its type?
+
+Remembering that:
+``` haskell
+fmap :: (a -> b) -> (F a -> F b)
+```
+
+since here `F a = Reader r a = r -> a` we have:
+
+```haskell
+fmap :: (a -> b) -> (r -> a) -> (r -> b)
+```
+
+Let's see the implementation of `fmap` for `Reader r`. We have to play to Type Tetris, to match types:
+
+``` haskell
+fmap f Reader a =
+fmap f g = \r -> f (g r)
+fmap f g = f . g = (.) f g
+fmap = (.)
+```
+
