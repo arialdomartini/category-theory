@@ -299,3 +299,21 @@ fmap f g = f . g = (.) f g
 fmap = (.)
 ```
 
+### Encapsulation
+So it seems each Functor is a special one, and act differently from the others. There is an intuition in common: it's like each Functor actiing on some type encapsulates the value of this type. It's a sort of container. Some of them are real contains (like a `List` or a Tree). Some are more problematic, like `Maybe`. Some other can really hardly be seen as containers (Functions).
+
+What does it mean to apply a function to a container? It means to open the container, look at the status inside and apply to function to the contained value. This is what we did with `Maybe`.
+
+But now we have this `Reader`. How can we see it as a container? Let's say for example we have `Reader Bool`: `Reader Bool a` it is defined as a function from `Bool -> a`. How many possible way are there to get from `Bool` to `a`? 2: one from `True`, and one from `False`. I can memoize this function, using a lookup table, which contains these 2 values. We could do the same with integers. Somehow are containers. So this distinction between functions and data types is not so strict, it's weak. In fact, in Haskell we can have a list from `1` to infinity:
+
+```haskell
+[1..]
+```
+
+Of course I cannot store this list in memory: how is it actually implemented? With a function, which generates elements as you ask for them. In Haskell all datatypes are functions. Data are really functions, functions are really data, there is no hard core distinction. Future is a container that will return a value in the future. Does this container really contains the value? Still we can think of it as a container, even if it only virtually contains it: the important thing is that we can apply a function to this value, and we really don't care if this value is already been evaluated and generated or not.
+
+So, yes, it's useful to think to Functors as containers, and it's also useful to expand the mind to think of containers in a larger and general way. 
+
+The only important thing is the ability to apply a function to the encapsulated (or virtually encapsulated) value (or values) of the Functor. The Functor by itself does not provide a way of retrieving the value: that's not part of the definition of Functor. We don't even know if that value is there or not, we only know we can operate on it. We cannot take it out.
+
+At least, this is true for Endofunctors, since in Haskell we only deal with them.
