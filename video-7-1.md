@@ -75,7 +75,66 @@ In other words, we need to jump 2 layers of functors. We can write it as:
 (fmap . fmap) square mis
 ```
 
+### Algebraic Datatypes
+Most type constructors that we normally use in Haskell are automatically functorial, or not too hard to make functorial. Data structures that are alebraic are automatically functorial: algebraic data structrures are formed with sums and products.
 
+We want to show now that if we create an algebraic data type using these operations then we automatically have a functor. 
 
+The first question is: is product of 2 types a functor?
+
+#### Product of categories
+A product is a tuple `(a, b)`. This can be written as a type constructor, as a sort of infix notation `(,) a b`. If we fix `a`, this is a type costructor in `b`.
+
+Now, what does it mean to apply (map) a function to it?
+
+``` haskell
+        fmap f
+(e, a)   -->  (e, b)
+  ^             ^
+  |             |
+  a      -->    b
+          f
+          
+          
+fmap f :: (a -> b) -> (e, a) -> (e, b)
+fmap f (e, x) = (e, f x)
+```
+
+Again, we can think of a pair as a container, that contains the second element on which we apply the function `f`.
+
+We could invert the items and say that the pair is functorial on the first item. Is it functorial on the same 2 arguments at the same time? Can we generalize the idea of Functor and have a Functor on 2 arguments?
+
+Indeed we can do this, exept we don't really have to. In Haskell we do, but in Category Theory we can play with categories with another trick. We can define a Functor that acts on a pair of categories, and takes one element from a category and the other from another category; here with Haskell, `a` and `b` are both from the same category, but in general they don't have to. We can define a product of 2 categories, just like we do with functions: after all, a function of 2 arguments is isomorphic to a function of 1 single argument which is a pair (a cartesian product).
+
+It turns out that this is simple to do, at leaset for small categories: in small categories, objects form a set, so we can costruct a product category like we constructed cartesian products. If we have 2 categories `C` and `D`, `C*D` is the category whose objects are pairs of objects `(c, d)` for each `c` in `C` and each `d` in `D`.
+
+What about the morphisms?
+
+Say we have a morphisms `f :: c -> c'` and `g :: d -> d'`. In `C*D` we have a pair `(c', d')` and a *pair* of morphisms `(f, g)`.
+
+Composition would be like:
+
+``` haskell
+(f', g') . (f, g) = (f' . f, g' . g)
+```
+
+Identity would be `(id, id)`, with the first in `C` and the second in `D`.
+
+Once we have defined the product, we can define a Functor from `C*D -> E`: this would map *pairs* of objects from `C*D` to objects in `E`, and each *pair* of morphisms in `C*D` to a morphism in `E`.
+
+This is called a *bifunctor*.
+
+If we want to do this in Haskell we have to lift a morphism from a product category. Since we are in Haskell, this would be the product of a category with itself: `C * C -> C`, where `C` is the category of types and functions. Yet, this would not be the functor from set to set, or to Hask to Hask, but from a product of 2 Hasks. We are already getting outside of Hask and we are getting into Hask square.
+
+This is a mapping from 2 types to a type, which resembles what we wrote before with `(,) a b`, which produces a tuple.
+
+We are also lifting 2 functions at the same time. So, if we want to define a bi-functor in Haskell, we would have:
+
+``` haskell
+class Bifunctor b where
+  bimap :: (a -> a') -> (b -> b') -> (f a b -> f a' b')
+```
+
+The compiler figures out that `f` is a type constructor that takes 2 types as arguments.
 
 
