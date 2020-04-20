@@ -137,4 +137,55 @@ class Bifunctor b where
 
 The compiler figures out that `f` is a type constructor that takes 2 types as arguments.
 
+Something that is a bifunctor is automatically functorial in the first argument: you fix the first argument, and it's functorial on the second one, and you can get it by putting an identity in one of the arguments, getting one of the 2 `fmap`s.
+
+#### Sum
+What about sum of 2 categories? We don't need to get through it. We can use the same bifunctor idea:
+
+`Either a b` is actually a bifunctor: we can define the action of 2 function on `Either a b`: `Either a b` is a type constructor that takes a pair of types and produces a type.
+
+A category for which a product is defined for every pair of objects is called Cartesian Category. In a Cartesian Category, then Product is a Bifunctor. The same is true for Coproduct, because it takes 2 types and produces a 3<sup>rd</sup> one.
+
+##### Products of morphisms
+
+Say we have `a*b` and 2 projections `p` and `q` to `a` and `b`, and we also have:
+
+``` haskell
+f :: a -> a'
+g :: b -> b'
+
+
+        a*b
+     p /   \ q
+      /     \
+     /       \
+    /         \
+   a           b
+   |           | 
+ f |           | g
+   a'          b'
+```
+
+We know we can build a product from `a'` and `b'`.
+
+
+``` haskell
+
+
+        a*b
+     p / | \ q
+      /  |  \
+     /   |   \
+    /    |??  \
+   a     |     b
+   |   a'*b'   |
+   | p'/   \q' |
+ f |  /     \  | g
+   a'          b'
+
+```
+
+If we want to show that this is a Bifunctor we need to show that we can lift `f` and `g` to something that goes from `a * b` to `a' * b'`, which we showed as `??`.
+
+In Haskell we just applied `f` and `g` to each argument. In general, we would need to apply the definition of product: for any other candidate, there is a unique morphism from that candidate to the actual thing. We just need to think to `a*b` as that candidate. From `a*b` to `a'` there is `f . p`, and to `b'` there is `g . q`. By definition `a' * b'` is the product, so there is a unique morphism from `a * b` to `a' * b'`, which we call `f * g`, the product of 2 functions.
 
