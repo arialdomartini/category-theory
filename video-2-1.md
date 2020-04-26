@@ -16,7 +16,7 @@ Mathematical functions are defined for all the domain, not just for some argumen
 
 A Total Function is a function defined for all of its arguments. In maths, Total Function is a synonym for Function.
 
-A Partial Function from `X` to `Y` is a function from `f: X' => Y` for some subset `X'` of `X`. It generalizes the concept of a function not forcing to map all the elements of `X`. If `X' = X`, the function is called Total.
+A Partial Function from `X` to `Y` is a function `f: X' => Y` for some subset `X'` of `X`. It generalizes the concept of a function not forcing to map all the elements of `X`. If `X' = X`, the function is called Total.
 
 ### Pure function
 A function is pure if it can be memoised, and it can be turned into a lookup table.
@@ -44,10 +44,11 @@ It is still OK for multiple elementes in `S1` to be in relation with the same el
 Multiple elements from the Domain can be associated to the same element in the Codomain, but not vice-versa: multiple elements of the Codomain cannot be associated to the same element in the Domain; in other words, each element of the Domain must be associated to a single element of the Codomain.
 
 
-> Mappings between Sets are called Functions
-> Mappings between Categories are called Functors
-> Mapping between Functors are called Natural Transformations
-> We will see all of this later.
+* Mappings between Sets are called Functions
+* Mappings between Categories are called Functors
+* Mapping between Functors are called Natural Transformations
+
+We will see all of this later.
 
 
 # Injective, Surjective and Bijective functions
