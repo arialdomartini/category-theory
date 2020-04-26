@@ -47,7 +47,7 @@ We know in Set Theory there is the concept of Empty Set, a set without any eleme
 
 All these concepts has to be redefined, or re-discovered in terms of morphisms and composition.
 
-We use Universal Construction. The definition of Universal Construction and [Universal Property](https://en.wikipedia.org/wiki/Universal_property#) is very forman, and we won't cover it here. Let's talk about it only intuitively. We look for patterns (in terms of objects and morphisms) which are valid in a category.
+We use Universal Construction. The definition of Universal Construction and [Universal Property](https://en.wikipedia.org/wiki/Universal_property#) is very formal, and we won't cover it here. Let's talk about it only intuitively. We look for patterns (in terms of objects and morphisms) which are valid in a category.
 
 There is an arrow from any sets to the Singleton Set (unit). From any type/set there is a function to unit, and the function is called unit. It's a function that just ignores its argument and cretes a unit.
 
@@ -57,7 +57,7 @@ fa :: A -> ()
 fb :: B -> ()
 ```
 
-There is even a function frm the Empty set/Void to `()`. This is a sort of Universal Property of the singleton set: there's an incoming arrow from any other objects in the category. Does it really single out the Singleton Object? Is there any other type with the same property? Unfortunately, yes.
+There is even a function from the Empty set/Void to `()`. This is a sort of Universal Property of the singleton set: there's an incoming arrow from any other objects in the category. Does it really single out the Singleton Object? Is there any other type with the same property? Unfortunately, yes.
 
 The Set category is very rich in arrows. There's almost a function for any sets. There's only one case in which there is no arrow: the arrows from a non-empty set to Void; there can be no arrow, because a function is a mapping between elements.
 

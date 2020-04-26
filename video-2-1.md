@@ -102,7 +102,7 @@ f . g = id
 g . f = id
 ```
 
-In the language of Category, there is no reference to the elements of the sets: isomorphisms here is expressed only in terms of composition and identity, nothing else.
+In the language of Category, there is no reference to the elements of the sets: isomorphisms here are expressed only in terms of composition and identity, nothing else.
 
 Isomorphisms are useful when we have 2 sets and for some intent they can be considered identical, because they are isomorphic, there is an isomorphisms that acts like an identification of between these two sets.
 
