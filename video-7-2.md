@@ -65,4 +65,37 @@ We need to prove that there is a unique morphism from `b` to `a`. We already hav
      a   ()
 ```
 
-And `id . p = p`. It must be unique, because no other morphism combined with `id` can give use `p`.
+And `id . p = p`. It must be unique, because no other morphism combined with `id` can give use `p`. Indeed, multiplying by terminal object gives back the original object. So, we have the unity.
+
+Of course, remember that in Haskell `a * ()` is not really equal to `a`, but it is equal up to a unique isomorphism: `(a, ()) ~ a`.
+
+When we have categorical product and a terminal object, then we say we have a monoidal structure. The same happens with co-product and initial object, which is also a monoidal category. In general, we need a binary operation that is a bifunctor (and we know that both product and co-product are bifunctors), and we need a unit, then we get a monoidal category. Of course, we need also associativity (up to isomorphism).
+
+We say that a monoidal category is a Tensor Product `*` and a unit `1`.
+
+## Haskell
+So far we saw that product and co-product are functorial. Sometime we construct data types that don't depend on a type argument: for example, `Bool = True | False`, does not take any type as argument, and it's not functorial. But we can tweak it a little bit and say it depends on a type, but not in a trivial way, which we call a *Const Functor*. Let's talk before a *Constant Functor*
+
+### Constant Functor
+A Constant Functor takes objects from a category and maps them to a single object of another category. It's like a black hole that takes anything and collapses it into a single object.
+
+In Haskell this would be
+
+``` haskell
+data Const c a = Const c
+```
+
+(note that on the left we are defining `Const c a` which is a Type Constructor, and on the right `Const c` which is a Data Constructor. In Haskell we reuse and overload names not to confuse people, on the contrary, to avoid multiple, confusing names).
+
+What happens to `a` in `Const c a`? It is just ignored.
+
+Is this a Functor?
+
+``` haskell
+instance Functor (Const c) where
+--  fmap :: (a -> b) -> (Const c a -> Const c b)
+    fmap f (Const c a)
+```
+
+Note that here `Const c` is `Const c a` partially applied, the type constructor, not the Data Constructor.
+
